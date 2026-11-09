@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { @apply bg-chalk font-sans text-ink antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-signal; outline-style: solid; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-5 md:px-8; }
+  .section { @apply py-20 md:py-28; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors; }
+  .btn-primary { @apply btn bg-signal text-white hover:bg-signal-dark; }
+  .btn-ghost { @apply btn border-2 border-ink/15 text-ink hover:border-ink hover:bg-white; }
+  .prose-post h2 { @apply mt-10 mb-3 text-2xl font-bold; }
+  .prose-post h3 { @apply mt-8 mb-2 text-xl font-bold; }
+  .prose-post p { @apply my-4 leading-8 text-ink-soft; }
+  .prose-post ul { @apply my-4 list-disc space-y-1 pl-6 text-ink-soft; }
+  .prose-post ol { @apply my-4 list-decimal space-y-1 pl-6 text-ink-soft; }
+  .prose-post a { @apply font-semibold text-signal underline underline-offset-2; }
+  .prose-post blockquote { @apply my-6 border-l-4 border-marigold pl-5 text-lg font-medium text-ink; }
+  .prose-post img { @apply my-6 rounded-xl; }
+  .prose-post code { @apply rounded bg-chalk-deep px-1.5 py-0.5 text-sm; }
+}
